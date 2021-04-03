@@ -28,6 +28,14 @@ button:hover, a:hover {
 	cursor: pointer;
 }
 
+.logo {
+	width: 100px;
+}
+
+#changingText {
+	color: var(--purp);
+}
+
 .nav {
 	background-color: var(--dark);
 	height: 60px;
@@ -64,6 +72,18 @@ button:hover, a:hover {
 	box-shadow: 0 0 5px var(--purp);
 	transition: 0.3s;
 	color: var(--primary);
+}
+
+#sli a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav #sli a img {
+	width: 28px;
+	border-radius: 50%;
+	margin-left: 10px;
 }
 
 main {

@@ -2,16 +2,16 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>XXX | Home</title>
+		<title>The Vortex | Home</title>
 		<link rel="stylesheet" href="./dashboard.css">
 	</head>
 	<body>
 		<header class='nav'>
-			<img class='logo' src='./static'/>
+			<img class='logo' src='./static/logo1nobg.png'/>
 			<ul>
 				<li><a href=''>Events around the globe</a></li>
 				<li><a href=''>Events nearby me</a></li>
-				<li><a href=''>Sign out</a></li>
+				<li id='sli'><a href=''>Sign out<img src='./static/userpic2.png'/></a></li>
 			</ul>
 		</header>
 		<main>
@@ -82,6 +82,11 @@
 	</body>
 	<script type="text/javascript">
 		const t = document.getElementById('changingText');
-		
+		const a = ['perspectives', 'videos', 'stories', 'opinions', 'moments']
+		for (let i = 0; i < 5; i++) {
+			setTimeout(() => {
+				t.innerHTML = a[i]
+			}, i * 1500);
+		}
 	</script>
 </html>

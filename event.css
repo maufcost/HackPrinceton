@@ -28,6 +28,14 @@ button:hover, a:hover {
 	cursor: pointer;
 }
 
+button:focus {
+	outline: none;
+}
+
+.logo {
+	width: 100px;
+}
+
 .nav {
 	background-color: var(--dark);
 	height: 60px;
@@ -66,6 +74,18 @@ button:hover, a:hover {
 	color: var(--primary);
 }
 
+#sli a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav #sli a img {
+	width: 28px;
+	border-radius: 50%;
+	margin-left: 10px;
+}
+
 main {
 	width: 75%;
 	margin: 0 auto;
@@ -89,16 +109,13 @@ main header h2 {
 	justify-content: space-between;
 }
 
-.highlight-area .highlight {
-
-}
-
 .reactions {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border: 1px solid var(--third);
 	border-radius: var(--br);
+	margin-top: 15px;
 }
 
 .reaction {
@@ -133,14 +150,67 @@ main header h2 {
 	width: 60px;
 }
 
-.highlight-area .comments {
+.highlight-area .list {
+	height: 300px;
+	overflow: auto;
+}
 
+.highlight-area .highlight {
+	margin-right: 40px;
+}
+
+.comment {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+	border-bottom: 1px solid var(--dark);
+	color: var(--primary);
+	font-weight: 200;
+}
+
+.comment img {
+	width: 30px;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+
+.comment p {
+	margin: 0;
+}
+
+.submit-comment {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+textarea {
+	resize: none;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+
+#submit-comment-btn {
+	background-color: var(--purp);
+	transition: 0.5s;
+	border: none;
+	color: var(--primary);
+	font-weight: 200;
+	border-radius: 10px;
+	padding: 8px 16px;
+}
+
+#submit-comment-btn:hover {
+	background-color: var(--purp-dark);
+	transition: 0.5s;
+	box-shadow: 0 0 8px var(--purp);
 }
 
 .add {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 40px 0;
 }
 
 .add h3 {
@@ -167,6 +237,10 @@ main header h2 {
 	box-shadow: 0 0 10px var(--purp);
 	border: 1px solid var(--purp);
 	transition: 0.4s;
+}
+
+.add button:focus {
+	outline: none;
 }
 
 .add button input {

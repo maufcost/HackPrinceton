@@ -2,16 +2,16 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>XXX | {eventName}</title>
+		<title>The Vortex | {eventName}</title>
 		<link rel="stylesheet" href="./event.css">
 	</head>
 	<body>
 		<header class='nav'>
-			<img class='logo' src='./static'/>
+			<img class='logo' src='./static/logo1nobg.png'/>
 			<ul>
 				<li><a href=''>Events around the globe</a></li>
 				<li><a href=''>Events nearby me</a></li>
-				<li><a href=''>Sign out</a></li>
+				<li id='sli'><a href=''>Sign out<img src='./static/userpic2.png'/></a></li>
 			</ul>
 		</header>
 		<main>
@@ -22,7 +22,16 @@
 
 			<section class='highlight-area'>
 				<div class='highlight'>
-					<video></video>
+					<!-- <video></video> -->
+					<iframe
+						width="450"
+						height="300"
+						src="https://www.youtube.com/embed/0fAQhSRLQnM"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen>
+					</iframe>
 
 					<div class='reactions'>
 						<div class='reaction'>
@@ -48,6 +57,22 @@
 					</div>
 				</div>
 				<div class='comments'>
+					<div class='list' id='comment-list'>
+						<div class='comment'>
+							<img src='./static/userpic1.png' />
+							<p>That is awesome! I wish I can go next time as soon as the pandemic is over!</p>
+						</div>
+						<div class='comment'>
+							<img src='./static/userpic2.png' />
+							<p>Damn. I went there! That was amazing...</p>
+						</div>
+					</div>
+					<div class='submit-comment'>
+						<textarea rows='4' cols='50' id='textarea'></textarea>
+						<button id='submit-comment-btn'>
+							Post Comment
+						</button>
+					</div>
 				</div>
 			</section>
 
@@ -59,7 +84,7 @@
 			<section class='all-videos'>
 				<h3>All videos from {eventName}. All perspectives.</h3>
 				<small>Here's all the perspectives from {eventName} that we analyzed</small>
-				<div class='videos'></div>
+				<div class='videos'>waiting for Nathan...</div>
 			</section>
 		</main>
 	</body>
@@ -92,5 +117,58 @@
 				reactions[i].innerHTML = parseInt(reactions[i].innerHTML) + 1;
 			});
 		};
+
+		setInterval(() => {
+			reactions[0].innerHTML = parseInt(reactions[0].innerHTML) + 1;
+		}, 2000);
+
+		setInterval(() => {
+			reactions[1].innerHTML = parseInt(reactions[1].innerHTML) + 1;
+		}, 1800);
+
+		setInterval(() => {
+			reactions[2].innerHTML = parseInt(reactions[2].innerHTML) + 1;
+		}, 5200);
+
+		setInterval(() => {
+			reactions[3].innerHTML = parseInt(reactions[3].innerHTML) + 1;
+		}, 3240);
+
+		setInterval(() => {
+			reactions[4].innerHTML = parseInt(reactions[4].innerHTML) + 1;
+		}, 4300);
+
+		const commentList = document.getElementById('comment-list')
+		const submitCommentBtn = document.getElementById('submit-comment-btn')
+		const textarea = document.getElementById('textarea')
+
+		submitCommentBtn.addEventListener('click', () => {
+			if (textarea.value !== '') {
+				const div = document.createElement('div')
+				const img = document.createElement('img')
+				const p   = document.createElement('p')
+
+				div.style.display = 'flex'
+				div.style.alignItems = 'center'
+				div.style.padding = '8px'
+				div.style.borderBottom = '1px solid #0f0f10'
+
+				img.src = './static/userpic2.png'
+				img.style.width = '30px'
+				img.style.borderRadius = '50%'
+				img.style.marginRight = '15px'
+
+				p.innerHTML = textarea.value
+				p.style.color = '#fafafa'
+				p.style.fontWeight = '200'
+
+				textarea.value = ''
+
+				div.appendChild(img)
+				div.appendChild(p)
+				commentList.prepend(div)
+			}
+		});
+
 	</script>
 </html>
