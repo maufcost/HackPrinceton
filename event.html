@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>XXX | {eventName}</title>
+		<link rel="stylesheet" href="./event.css">
+	</head>
+	<body>
+		<header class='nav'>
+			<img class='logo' src='./static'/>
+			<ul>
+				<li><a href=''>Events around the globe</a></li>
+				<li><a href=''>Events nearby me</a></li>
+				<li><a href=''>Sign out</a></li>
+			</ul>
+		</header>
+		<main>
+			<header>
+				<h1>{eventName}</h1>
+				<h2>Watch this {eventName}'s AI-generated highlights &#129304;</h2>
+			</header>
+
+			<section class='highlight-area'>
+				<div class='highlight'>
+					<video></video>
+
+					<div class='reactions'>
+						<div class='reaction'>
+							<button id='reaction1btn'>❤️</button>
+							<span id='reaction1'>0</span>
+						</div>
+						<div class='reaction'>
+							<button id='reaction2btn'>&#129304;</button>
+							<span id='reaction2'>0</span>
+						</div>
+						<div class='reaction'>
+							<button id='reaction3btn'>&#128293;</button>
+							<span id='reaction3'>0</span>
+						</div>
+						<div class='reaction'>
+							<button id='reaction4btn'><img src='./static/adance_gif.gif'/></button>
+							<span id='reaction4'>0</span>
+						</div>
+						<div class='reaction' id='last-reaction'>
+							<button id='reaction5btn'><img src='./static/oscardance_gif.gif'/></button>
+							<span id='reaction5'>0</span>
+						</div>
+					</div>
+				</div>
+				<div class='comments'>
+				</div>
+			</section>
+
+			<section class='add'>
+				<h3>Let's share your perspective and contribute to the vortex:</h3>
+				<button>+<input type='file' /></button>
+			</section>
+
+			<section class='all-videos'>
+				<h3>All videos from {eventName}. All perspectives.</h3>
+				<small>Here's all the perspectives from {eventName} that we analyzed</small>
+				<div class='videos'></div>
+			</section>
+		</main>
+	</body>
+	<script type="text/javascript">
+		const reaction1 = document.getElementById('reaction1')
+		const reaction1Btn = document.getElementById('reaction1btn')
+
+		const reaction2 = document.getElementById('reaction2')
+		const reaction2Btn = document.getElementById('reaction2btn')
+
+		const reaction3 = document.getElementById('reaction3')
+		const reaction3Btn = document.getElementById('reaction3btn')
+
+		const reaction4 = document.getElementById('reaction4')
+		const reaction4Btn = document.getElementById('reaction4btn')
+
+		const reaction5 = document.getElementById('reaction5')
+		const reaction5Btn = document.getElementById('reaction5btn')
+
+		const reactions = [
+			reaction1, reaction2, reaction3, reaction4, reaction5
+		]
+
+		const reactionBtns = [
+			reaction1Btn, reaction2Btn, reaction3Btn, reaction4Btn, reaction5Btn
+		]
+
+		for (let i = 0; i < reactions.length; i++) {
+			reactionBtns[i].addEventListener('click', () => {
+				reactions[i].innerHTML = parseInt(reactions[i].innerHTML) + 1;
+			});
+		};
+	</script>
+</html>
