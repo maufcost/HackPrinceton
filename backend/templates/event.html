@@ -4,6 +4,11 @@
 		<meta charset="utf-8">
 		<title>The Vortex | {{event['name']}}</title>
 		<link rel="stylesheet" href="{{url_for('static', filename='event.css') }}">
+		<style>
+			iframe{
+				display:none;
+			}
+		</style>
 	</head>
 	<body>
 		<header class='nav'>
@@ -29,12 +34,13 @@
 				<div class='highlight'>
 					<!-- <video></video> -->
 					<iframe
+						id="ai"
 						width="450"
 						height="300"
-						src="https://www.youtube.com/embed/0fAQhSRLQnM"
+						src="https://storage.googleapis.com/vortexvideo/8t7jkii378veed.mp4"
 						title="YouTube video player"
 						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowfullscreen>
 					</iframe>
 
@@ -136,10 +142,11 @@
 
 		document.body.onkeyup = function(e){
 		    if(e.keyCode == 32){
+					document.getElementById("ai").display = "block";
 						setInterval(() => {
 							reactions[0].innerHTML = parseInt(reactions[0].innerHTML) + 1;
 						}, 2000);
-						
+
 						setInterval(() => {
 							reactions[1].innerHTML = parseInt(reactions[1].innerHTML) + 1;
 						}, 1800);
@@ -155,13 +162,12 @@
 						setInterval(() => {
 							reactions[4].innerHTML = parseInt(reactions[4].innerHTML) + 1;
 						}, 4300);
-
-						const commentList = document.getElementById('comment-list')
-						const submitCommentBtn = document.getElementById('submit-comment-btn')
-						const textarea = document.getElementById('textarea')
 			    }
 		}
 
+		const commentList = document.getElementById('comment-list')
+		const submitCommentBtn = document.getElementById('submit-comment-btn')
+		const textarea = document.getElementById('textarea')
 		submitCommentBtn.addEventListener('click', () => {
 			if (textarea.value !== '') {
 				const div = document.createElement('div')
