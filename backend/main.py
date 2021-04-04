@@ -29,22 +29,47 @@ def random_string_digits(string_len=6):
     lettersAndDigits = string.ascii_letters + string.digits
     return ''.join(random.choice(lettersAndDigits) for i in range(string_len))
 
-def blobify(img_data):
-    img_blob = base64.b64decode(img_data)
-    return img_blob
-
-def upload_blob(file, destination_blob_name):
-
-    storage_client = storage.Client() # Opens a storage client
-    bucket = storage_client.bucket("vortex") #our bucket name
-    blob = bucket.blob(destination_blob_name)
-    blob.upload_from_string(file, content_type='image/png') #, content_type="image/png"
+# def blobify(img_data):
+#     img_blob = base64.b64decode(img_data)
+#     return img_blob
+#
+# def upload_blob(file, destination_blob_name):
+#
+#     storage_client = storage.Client() # Opens a storage client
+#     bucket = storage_client.bucket("vortex") #our bucket name
+#     blob = bucket.blob(destination_blob_name)
+#     blob.upload_from_string(file, content_type='image/png') #, content_type="image/png"
 
 ####################{SERVER FUNCTIONS BEGIN HERE}#########################
 
 @app.route('/')
-def main():
+def home():
     return render_template('landing.html')
+# @app.route('/')
+# def index():
+#     return """
+# <form method="POST" action="/upload" enctype="multipart/form-data">
+#     <input type="file" name="file">
+#     <input type="submit">
+# </form>
+# """
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    uploaded_file = request.files.get('file')
+
+    if not uploaded_file:
+        return 'No file uploaded.', 400
+
+    gcs = storage.Client()
+    bucket = gcs.get_bucket("vortexvideos")
+    blob = bucket.blob(uploaded_file.filename)
+
+    blob.upload_from_string(uploaded_file.read(),content_type=uploaded_file.content_type)
+
+    # URL
+    return blob.public_url
 
 ####################{SERVER FUNCTIONS END HERE}#########################
 
