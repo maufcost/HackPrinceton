@@ -40,6 +40,7 @@ def random_string_digits(string_len=6):
 #     blob = bucket.blob(destination_blob_name)
 #     blob.upload_from_string(file, content_type='image/png') #, content_type="image/png"
 
+
 ####################{SERVER FUNCTIONS BEGIN HERE}#########################
 @app.route('/')
 def home():
@@ -71,15 +72,12 @@ def event_page():
 # </html>
 
 # Simple Sign-in
-@app.route('/setcookie', methods = ['POST', 'GET'])
+@app.route('/setcookie', methods = ['POST'])
 def setcookie():
-   if request.method == 'POST':
-   user = request.form['nm']
-
-   resp = make_response(render_template('readcookie.html'))
-   resp.set_cookie('userID', user)
-
-   return resp
+    user = request.form['nm']
+    resp = make_response(render_template('readcookie.html'))
+    resp.set_cookie('userID', user)
+    return resp
 
 # Cookie Getter
 @app.route('/getcookie')

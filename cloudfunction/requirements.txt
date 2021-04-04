@@ -1,0 +1,3 @@
+google-cloud-videointelligence==2.0.0
+google-cloud-storage==1.37.0
+moviepy==1.0.3
