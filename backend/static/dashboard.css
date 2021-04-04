@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;700&display=swap');
+
+:root {
+	--bg: #1b1c22;
+	--br: 15px;
+	--primary: #fafafa;
+	--secondary: #535357;
+	--third: #727376;
+	--dark: #0f0f10;
+	--purp: #3c51fa;
+	--purp-dark: #6b1ef9;
+}
+
+body, html {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg);
+	font-family: 'Epilogue', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+button:hover, a:hover {
+	cursor: pointer;
+}
+
+.logo {
+	width: 100px;
+}
+
+#changingText {
+	color: var(--purp);
+}
+
+.nav {
+	background-color: var(--dark);
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+
+.nav .logo {
+
+}
+
+.nav ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav li {
+	margin-left: 20px;
+}
+
+.nav a {
+	color: var(--third);
+	padding: 8px 16px;
+	transition: 0.3s;
+	text-decoration: none;
+	border-radius: var(--br);
+	font-size: 0.9em;
+}
+
+.nav a:hover {
+	box-shadow: 0 0 5px var(--purp);
+	transition: 0.3s;
+	color: var(--primary);
+}
+
+#ili {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav li input {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 8px;
+	border: none;
+	width: 250px;
+}
+
+.nav li input:focus {
+	outline: none;
+}
+
+.nav li button {
+	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: var(--purp);
+	height: 33px;
+}
+
+.nav li button:hover {
+	background-color: var(--purp-dark);
+}
+#sli a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav #sli a img {
+	width: 28px;
+	border-radius: 50%;
+	margin-left: 10px;
+}
+
+main {
+	width: 75%;
+	margin: 0 auto;
+}
+
+main header {
+	padding: 50px 0 30px 0;
+}
+
+main header h1 {
+	color: var(--primary);
+}
+
+main header h2 {
+	color: var(--secondary);
+	font-weight: 200;
+}
+
+main .events-to-browse {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 5px;
+}
+
+main .events-to-browse .event-thumb {
+	border-radius: var(--br);
+	transition: 0.5s;
+	text-align: center;
+	padding: 20px;
+}
+
+main .events-to-browse .event-thumb:hover {
+	cursor: pointer;
+	box-shadow: 0 0 20px black;
+	transition: 0.5s;
+	border: 1px solid var(--purp-dark);
+}
+
+.event-thumb img {
+	border-radius: var(--br);
+	width: 150px;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.event-thumb p {
+	color: var(--primary);
+	font-weight: 700;
+	margin: 0;
+	margin-top: 10px;
+}
+
+.event-thumb span {
+	color: var(--secondary);
+	font-size: 0.8em;
+	font-weight: 300;
+	margin-top: 7px;
+}
+
+.event-thumb div {
+	text-align: left;
+}
