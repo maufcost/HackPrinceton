@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>The Vortex | Create new event</title>
+		<link rel="stylesheet" href="./createEvent.css">
+	</head>
+	<body>
+		<header class='nav'>
+			<img class='logo' src='./static/logo1nobg.png'/>
+			<ul>
+				<li><a href=''>Events around the globe</a></li>
+				<li><a href=''>Events near me</a></li>
+				<li><a href=''>Create new event</a></li>
+				<!-- <li id='ili'>
+					<input type='text' placeholder='Search for words or objects in events'/>
+					<button>🔎</button>
+				</li> -->
+				<li id='sli'><a href=''>Sign out<img src='./static/userpic2.png'/></a></li>
+			</ul>
+		</header>
+		<main>
+			<header>
+				<h1>Mauricio, here you can <span>create</span> a new event</h1>
+				<h2>Share your perspective with the world and let others share theirs about this event! 📺</h2>
+			</header>
+			<section>
+				<div>
+					<label>Event Name</label><br/>
+					<input type='text' placeholder='Like: Lockdown Graduation Parties 2021'/>
+				</div>
+
+				<div>
+					<label>Description? You decide Nate</label><br/>
+					<input type='text' placeholder='The best graduation lockdown parties'/>
+				</div>
+
+				<div>
+					<label>Your video, moment, perspective (you decide):</label>
+					<button id='add-file'>
+						Pick my video
+						<input type='file'/>
+					</button>
+				</div>
+
+				<button id='addbtn'>Add event to the Vortex</button>
+			</section>
+		</main>
+	</body>
+</html>

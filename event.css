@@ -59,6 +59,36 @@ button:focus {
 	margin-left: 20px;
 }
 
+#ili {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav li input {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 8px;
+	border: none;
+	width: 250px;
+}
+
+.nav li input:focus {
+	outline: none;
+}
+
+.nav li button {
+	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: var(--purp);
+	height: 33px;
+}
+
+.nav li button:hover {
+	background-color: var(--purp-dark);
+}
+
 .nav a {
 	color: var(--third);
 	padding: 8px 16px;
@@ -249,6 +279,10 @@ textarea {
 	opacity: 0;
 }
 
+.all-videos {
+	padding-bottom: 40px;
+}
+
 .all-videos h3 {
 	color: var(--primary);
 	margin-bottom: 8px;
@@ -264,4 +298,34 @@ textarea {
 .videos {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
+	margin-top: 20px;
+}
+
+.posted-video img {
+	width: 180px;
+	border-radius: var(--br);
+	margin-top: 8px;
+}
+
+.posted-video p {
+	color: var(--secondary);
+	font-size: 0.8em;
+	margin-top: 8px;
+}
+
+.posted-video {
+	text-align: center;
+	border-radius: var(--br);
+	padding: 6px;
+}
+
+.posted-video div {
+	text-align: left;
+}
+
+.posted-video:hover {
+	cursor: pointer;
+	box-shadow: 0 0 20px black;
+	transition: 0.5s;
+	border: 1px solid var(--purp-dark);
 }

@@ -74,6 +74,35 @@ button:hover, a:hover {
 	color: var(--primary);
 }
 
+#ili {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav li input {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 8px;
+	border: none;
+	width: 250px;
+}
+
+.nav li input:focus {
+	outline: none;
+}
+
+.nav li button {
+	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: var(--purp);
+	height: 33px;
+}
+
+.nav li button:hover {
+	background-color: var(--purp-dark);
+}
 #sli a {
 	display: flex;
 	align-items: center;
