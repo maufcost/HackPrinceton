@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>The Vortex | {eventName}</title>
-		<link rel="stylesheet" href="./event.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='event.css') }}">
 	</head>
 	<body>
 		<header class='nav'>
-			<img class='logo' src='./static/logo1nobg.png'/>
+			<img class='logo' src="{{url_for('static', filename='images/logo1nobg.png') }}"/>
 			<ul>
 				<li><a href=''>Events around the globe</a></li>
 				<li><a href=''>Events near me</a></li>
@@ -16,7 +16,7 @@
 					<input type='text' placeholder='Search for words or objects in the videos'/>
 					<button>🔎</button>
 				</li>
-				<li id='sli'><a href=''>Sign out<img src='./static/userpic2.png'/></a></li>
+				<li id='sli'><a href=''>Sign out<img src="{{url_for('static', filename='images/userpic2.png') }}"/></a></li>
 			</ul>
 		</header>
 		<main>
@@ -64,11 +64,11 @@
 				<div class='comments'>
 					<div class='list' id='comment-list'>
 						<div class='comment'>
-							<img src='./static/userpic1.png' />
+							<img src="{{url_for('static', filename='images/userpic1.png') }}"/>
 							<p>That is awesome! I wish I can go next time as soon as the pandemic is over!</p>
 						</div>
 						<div class='comment'>
-							<img src='./static/userpic2.png' />
+							<img src="{{url_for('static', filename='images/userpic2.png') }}"/>
 							<p>Damn. I went there! That was amazing...</p>
 						</div>
 					</div>
@@ -91,45 +91,39 @@
 				<small>Here's all the perspectives from {eventName} that we analyzed</small>
 				<div class='videos'>
 					<div class='posted-video'>
-						<img src='./static/superbowl_gif.gif'>
+						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
 						<div>
 							<p>Posted by @Nate8888</p>
 						</div>
 					</div>
 					<div class='posted-video'>
-						<img src='./static/springbreak_gif.gif'>
+						<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
 						<div>
 							<p>Posted by @Maufcost1</p>
 						</div>
 					</div>
 					<div class='posted-video'>
-						<img src='./static/superbowl_gif.gif'>
+						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
 						<div>
 							<p>Posted by @Bethany810</p>
 						</div>
 					</div>
 					<div class='posted-video'>
-						<img src='./static/springbreak_gif.gif'>
-						<div>
-							<p>Posted by @DrFarewell</p>
-						</div>
-					</div>
-					<div class='posted-video'>
-						<img src='./static/superbowl_gif.gif'>
+						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
 						<div>
 							<p>Posted by @Nate8888</p>
 						</div>
 					</div>
 					<div class='posted-video'>
-						<img src='./static/springbreak_gif.gif'>
+						<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
 						<div>
-							<p>Posted by @TheDreamIsHere</p>
+							<p>Posted by @Maufcost1</p>
 						</div>
 					</div>
 					<div class='posted-video'>
-						<img src='./static/superbowl_gif.gif'>
+						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
 						<div>
-							<p>Posted by @Maufcost1</p>
+							<p>Posted by @Bethany810</p>
 						</div>
 					</div>
 				</div>

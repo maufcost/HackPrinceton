@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>The Vortex | Home</title>
-		<link rel="stylesheet" href="./dashboard.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='dashboard.css') }}">
 	</head>
 	<body>
 		<header class='nav'>
-			<img class='logo' src='./static/logo1nobg.png'/>
+			<img class='logo' src="{{url_for('static', filename='images/logo1nobg.png') }}"/>
 			<ul>
 				<li><a href=''>Events around the globe</a></li>
 				<li><a href=''>Events near me</a></li>
@@ -16,7 +16,7 @@
 					<input type='text' placeholder='Search for words or objects in events'/>
 					<button>🔎</button>
 				</li>
-				<li id='sli'><a href=''>Sign out<img src='./static/userpic2.png'/></a></li>
+				<li id='sli'><a href=''>Sign out<img src="{{url_for('static', filename='images/userpic2.png') }}"/></a></li>
 			</ul>
 		</header>
 		<main>
@@ -27,58 +27,58 @@
 
 			<section class='events-to-browse'>
 				<div class='event-thumb'>
-					<img src='./static/superbowl_gif.gif'>
+					<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
 					<div>
 						<p>Super Bowl Sunday 2021</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/springbreak_gif.gif'>
+					<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
 					<div>
 						<p>Bethany's 1-year-old Birthday Party</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/springbreak_gif.gif'>
+					<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
 					<div>
 						<p>Spring Break 2021</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/apple_gif.gif'>
+					<img src="{{url_for('static', filename='images/apple_gif.gif') }}">
 					<div>
 						<p>My Family Memories</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/superbowl_gif.gif'>
+					<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
 					<div>
-						<p>Clubhouse Behind The Scenes</p>
+						<p>Super Bowl Sunday 2021</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/apple_gif.gif'>
+					<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
 					<div>
-						<p>The biggest event in tech!</p>
+						<p>Bethany's 1-year-old Birthday Party</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/springbreak_gif.gif'>
+					<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
 					<div>
-						<p>Philosophical Thoughts by Unphilosophical People</p>
+						<p>Spring Break 2021</p>
 						<span>Something something something</span>
 					</div>
 				</div>
 				<div class='event-thumb'>
-					<img src='./static/apple_gif.gif'>
+					<img src="{{url_for('static', filename='images/apple_gif.gif') }}">
 					<div>
-						<p>Wasting Time</p>
+						<p>My Family Memories</p>
 						<span>Something something something</span>
 					</div>
 				</div>

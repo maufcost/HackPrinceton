@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title>The Vortex | Create new event</title>
-		<link rel="stylesheet" href="./createEvent.css">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='createEvent.css') }}">
 	</head>
 	<body>
 		<header class='nav'>
-			<img class='logo' src='./static/logo1nobg.png'/>
+			<img class='logo' src="{{url_for('static', filename='images/logo1nobg.png') }}"/>
 			<ul>
 				<li><a href=''>Events around the globe</a></li>
 				<li><a href=''>Events near me</a></li>
@@ -16,7 +17,7 @@
 					<input type='text' placeholder='Search for words or objects in events'/>
 					<button>🔎</button>
 				</li> -->
-				<li id='sli'><a href=''>Sign out<img src='./static/userpic2.png'/></a></li>
+				<li id='sli'><a href=''>Sign out<img src="{{url_for('static', filename='images/userpic2.png') }}"/></a></li>
 			</ul>
 		</header>
 		<main>

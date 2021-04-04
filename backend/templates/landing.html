@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Vortex | Welcome to the Vortex</title>
-		<link rel="stylesheet" href="./landing.css">
+		<link rel="stylesheet" href="{{url_for('static', filename='landing.css') }}">
 	</head>
 	<body>
 		<video autoplay muted loop id="myVideo">
-			<source src="./static/video.mp4" type="video/mp4">
+			<source src="{{url_for('static', filename='images/video.mp4') }}" type="video/mp4">
 		</video>
 		<header class='nav'>
-			<img class='logo' src='./static/logo1nobg.png'/>
+			<img class='logo' src="{{url_for('static', filename='images/logo1nobg.png') }}"/>
 			<ul>
 				<li><a href=''>Events around the globe</a></li>
 				<li><a href=''>Events nearby me</a></li>
