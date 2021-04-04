@@ -2,16 +2,16 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>The Vortex | {eventName}</title>
+		<title>The Vortex | {{event['name']}}</title>
 		<link rel="stylesheet" href="{{url_for('static', filename='event.css') }}">
 	</head>
 	<body>
 		<header class='nav'>
 			<img class='logo' src="{{url_for('static', filename='images/logo1nobg.png') }}"/>
 			<ul>
-				<li><a href=''>Events around the globe</a></li>
-				<li><a href=''>Events near me</a></li>
-				<li><a href=''>Create new event</a></li>
+				<li><a href='/dash'>Events around the globe</a></li>
+				<li><a href='/dash'>Events near me</a></li>
+				<li><a href='/create'>Create new event</a></li>
 				<li id='ili'>
 					<input type='text' placeholder='Search for words or objects in the videos'/>
 					<button>🔎</button>
@@ -21,8 +21,8 @@
 		</header>
 		<main>
 			<header>
-				<h1>{eventName}</h1>
-				<h2>Watch this {eventName}'s AI-generated highlights &#129304;</h2>
+				<h1>{{event['name']}}</h1>
+				<h2>Watch this {{event['name']}}'s AI-generated highlights &#129304;</h2>
 			</header>
 
 			<section class='highlight-area'>
@@ -52,11 +52,11 @@
 							<span id='reaction3'>0</span>
 						</div>
 						<div class='reaction'>
-							<button id='reaction4btn'><img src='./static/adance_gif.gif'/></button>
+							<button id='reaction4btn'><img src='/static/images/adance_gif.gif'/></button>
 							<span id='reaction4'>0</span>
 						</div>
 						<div class='reaction' id='last-reaction'>
-							<button id='reaction5btn'><img src='./static/oscardance_gif.gif'/></button>
+							<button id='reaction5btn'><img src='/static/images/oscardance_gif.gif'/></button>
 							<span id='reaction5'>0</span>
 						</div>
 					</div>
@@ -83,49 +83,23 @@
 
 			<section class='add'>
 				<h3>Let's share your perspective and contribute to this vortex's event:</h3>
-				<button>+<input type='file' /></button>
+				<form  id="form" action="/upload" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="eventid" value="{{id}}">
+					<button>+<input id="file" type='file' name='file'/></button>
+				</form>
 			</section>
-
 			<section class='all-videos'>
-				<h3>All videos from {eventName}. All perspectives.</h3>
-				<small>Here's all the perspectives from {eventName} that we analyzed</small>
-				<div class='videos'>
-					<div class='posted-video'>
-						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
-						<div>
-							<p>Posted by @Nate8888</p>
-						</div>
-					</div>
-					<div class='posted-video'>
-						<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
-						<div>
-							<p>Posted by @Maufcost1</p>
-						</div>
-					</div>
-					<div class='posted-video'>
-						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
-						<div>
-							<p>Posted by @Bethany810</p>
-						</div>
-					</div>
-					<div class='posted-video'>
-						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
-						<div>
-							<p>Posted by @Nate8888</p>
-						</div>
-					</div>
-					<div class='posted-video'>
-						<img src="{{url_for('static', filename='images/springbreak_gif.gif') }}">
-						<div>
-							<p>Posted by @Maufcost1</p>
-						</div>
-					</div>
-					<div class='posted-video'>
-						<img src="{{url_for('static', filename='images/superbowl_gif.gif') }}">
-						<div>
-							<p>Posted by @Bethany810</p>
-						</div>
-					</div>
+				<h3>All videos from {{event['name']}}. All perspectives.</h3>
+				<small>Here's all the perspectives from {{event['name']}} that we processed!</small>
+					<div class='videos'>
+						{% for each_moment in moments %}
+							<div class='posted-video'>
+								<img src="https://storage.googleapis.com/vortexgif/{{each_moment['vid']}}.gif">
+								<div>
+									<p>Posted by @{{each_moment['uid']}}</p>
+								</div>
+							</div>
+						{% endfor %}
 				</div>
 			</section>
 		</main>
@@ -160,29 +134,33 @@
 			});
 		};
 
-		setInterval(() => {
-			reactions[0].innerHTML = parseInt(reactions[0].innerHTML) + 1;
-		}, 2000);
+		document.body.onkeyup = function(e){
+		    if(e.keyCode == 32){
+						setInterval(() => {
+							reactions[0].innerHTML = parseInt(reactions[0].innerHTML) + 1;
+						}, 2000);
+						
+						setInterval(() => {
+							reactions[1].innerHTML = parseInt(reactions[1].innerHTML) + 1;
+						}, 1800);
 
-		setInterval(() => {
-			reactions[1].innerHTML = parseInt(reactions[1].innerHTML) + 1;
-		}, 1800);
+						setInterval(() => {
+							reactions[2].innerHTML = parseInt(reactions[2].innerHTML) + 1;
+						}, 5200);
 
-		setInterval(() => {
-			reactions[2].innerHTML = parseInt(reactions[2].innerHTML) + 1;
-		}, 5200);
+						setInterval(() => {
+							reactions[3].innerHTML = parseInt(reactions[3].innerHTML) + 1;
+						}, 3240);
 
-		setInterval(() => {
-			reactions[3].innerHTML = parseInt(reactions[3].innerHTML) + 1;
-		}, 3240);
+						setInterval(() => {
+							reactions[4].innerHTML = parseInt(reactions[4].innerHTML) + 1;
+						}, 4300);
 
-		setInterval(() => {
-			reactions[4].innerHTML = parseInt(reactions[4].innerHTML) + 1;
-		}, 4300);
-
-		const commentList = document.getElementById('comment-list')
-		const submitCommentBtn = document.getElementById('submit-comment-btn')
-		const textarea = document.getElementById('textarea')
+						const commentList = document.getElementById('comment-list')
+						const submitCommentBtn = document.getElementById('submit-comment-btn')
+						const textarea = document.getElementById('textarea')
+			    }
+		}
 
 		submitCommentBtn.addEventListener('click', () => {
 			if (textarea.value !== '') {
@@ -195,7 +173,7 @@
 				div.style.padding = '8px'
 				div.style.borderBottom = '1px solid #0f0f10'
 
-				img.src = './static/userpic2.png'
+				img.src = '/static/images/userpic2.png'
 				img.style.width = '30px'
 				img.style.borderRadius = '50%'
 				img.style.marginRight = '15px'
@@ -212,5 +190,8 @@
 			}
 		});
 
+		document.getElementById("file").onchange = function() {
+				document.getElementById("form").submit();
+		};
 	</script>
 </html>

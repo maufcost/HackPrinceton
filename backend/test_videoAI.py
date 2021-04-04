@@ -5,8 +5,8 @@ import os
 from google.cloud import videointelligence
 from algoliasearch.search_client import SearchClient
 
-client = SearchClient.create('F6RT7CDBCJ', '47f93b306810243569f255b6c41b51a0')
-index = client.init_index('vortex')
+# client = SearchClient.create('redacted', 'redacted')
+# index = client.init_index('vortex')
 
 """ Detects labels given a GCS path. """
 video_client = videointelligence.VideoIntelligenceServiceClient()

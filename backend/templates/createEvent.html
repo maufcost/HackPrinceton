@@ -10,9 +10,9 @@
 		<header class='nav'>
 			<img class='logo' src="{{url_for('static', filename='images/logo1nobg.png') }}"/>
 			<ul>
-				<li><a href=''>Events around the globe</a></li>
-				<li><a href=''>Events near me</a></li>
-				<li><a href=''>Create new event</a></li>
+				<li><a href='/dash'>Events around the globe</a></li>
+				<li><a href='/dash'>Events near me</a></li>
+				<li><a href='/create'>Create new event</a></li>
 				<!-- <li id='ili'>
 					<input type='text' placeholder='Search for words or objects in events'/>
 					<button>🔎</button>
@@ -22,29 +22,31 @@
 		</header>
 		<main>
 			<header>
-				<h1>Mauricio, here you can <span>create</span> a new event</h1>
+				<h1>{{uname}}, here you can <span>create</span> a new event</h1>
 				<h2>Share your perspective with the world and let others share theirs about this event! 📺</h2>
 			</header>
 			<section>
+				<form action="/createEvent" method="post" enctype="multipart/form-data">
 				<div>
 					<label>Event Name</label><br/>
-					<input type='text' placeholder='Like: Lockdown Graduation Parties 2021'/>
+					<input name='name' type='text' placeholder='Like: Lockdown Graduation Parties 2021'/>
 				</div>
 
 				<div>
-					<label>Description? You decide Nate</label><br/>
-					<input type='text' placeholder='The best graduation lockdown parties'/>
+					<label>Description</label><br/>
+					<input name='desc' type='text' placeholder='The best graduation lockdown parties'/>
 				</div>
 
 				<div>
-					<label>Your video, moment, perspective (you decide):</label>
+					<label>Upload your event's gif!</label>
 					<button id='add-file'>
-						Pick my video
-						<input type='file'/>
+						Pick my GIF
+						<input type='file' name='file'/>
 					</button>
 				</div>
 
-				<button id='addbtn'>Add event to the Vortex</button>
+					<input type="submit" id='addBtn' value="Add event to the Vortex">
+				</form>
 			</section>
 		</main>
 	</body>
