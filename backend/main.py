@@ -41,10 +41,52 @@ def random_string_digits(string_len=6):
 #     blob.upload_from_string(file, content_type='image/png') #, content_type="image/png"
 
 ####################{SERVER FUNCTIONS BEGIN HERE}#########################
-
 @app.route('/')
 def home():
     return render_template('landing.html')
+
+@app.route('/create')
+def create_page():
+    return render_template('createEvent.html')
+
+@app.route('/dash')
+def dashboard_page():
+    return render_template('dashboard.html')
+
+@app.route('/event')
+def event_page():
+    return render_template('event.html')
+
+# HTML CODE FOR LATER
+# <html>
+#    <body>
+#
+#       <form action = "/setcookie" method = "POST">
+#          <p><h3>Enter userID</h3></p>
+#          <p><input type = 'text' name = 'nm'/></p>
+#          <p><input type = 'submit' value = 'Login'/></p>
+#       </form>
+#
+#    </body>
+# </html>
+
+# Simple Sign-in
+@app.route('/setcookie', methods = ['POST', 'GET'])
+def setcookie():
+   if request.method == 'POST':
+   user = request.form['nm']
+
+   resp = make_response(render_template('readcookie.html'))
+   resp.set_cookie('userID', user)
+
+   return resp
+
+# Cookie Getter
+@app.route('/getcookie')
+def getcookie():
+   name = request.cookies.get('userID')
+   return '<h1>welcome ' + name + '</h1>'
+
 # @app.route('/')
 # def index():
 #     return """
